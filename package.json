@@ -7,7 +7,8 @@
     "riot": "^2.2.4"
   },
   "devDependencies": {
-    "browser-sync": "^2.9.11"
+    "browser-sync": "^2.9.11",
+    "riotcontrol": "0.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

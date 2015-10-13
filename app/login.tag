@@ -1,7 +1,7 @@
 <login>
     <div class="container login-box">
 
-    <form class="form-signin">
+    <form class="form-signin" onsubmit={ add }>
     <h2 class="form-signin-heading">Please sign in</h2>
 
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -11,6 +11,14 @@
     </form>
 
     </div>
+
+    <script>
+        var self = this;
+
+        add(e) {
+            RiotControl.trigger('user_add', { username: 'sid@sid.com', password: 'test3' })
+        }
+    </script>
 
     <style>
         input, button {

@@ -10,9 +10,13 @@
     <!-- include riot.js -->
     <script src="../node_modules/riot/riot.min.js"></script>
     <script src="../dist/login.js"></script>
+    <script src="../node_modules/riotcontrol/riotcontrol.js"></script>
+    <script src="../app/userstore.js"></script>
 
 
     <script>
+      var userStore = new UserStore() // Create a store instance.
+      RiotControl.addStore(userStore) // Register the store in central dispatch.
       riot.mount('login')
     </script>
   </body>
