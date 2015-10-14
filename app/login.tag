@@ -1,27 +1,47 @@
 <login>
     <div class="container login-box">
-
-    <form class="form-signin" onsubmit={ add }>
-    <h2 class="form-signin-heading">Please sign in</h2>
-
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-
+        <form class="form-signin" onsubmit={ add }>
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" name="userName" onkeyup={ editUserName } class="form-control" placeholder="User name" required="" autofocus="">
+            <input type="password" name="password" onkeyup={ editPassword } class="form-control" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
     </div>
 
     <script>
-        var self = this;
+        var self = this
+        self.users = []
 
         add(e) {
-            RiotControl.trigger('user_add', { username: 'sid@sid.com', password: 'test3' })
+            RiotControl.trigger('user_add', {
+                username: self.userName,
+                password: self.password
+            })
         }
+
+        editUserName(e) {
+            self.userName = e.target.value
+        }
+
+        editPassword(e) {
+            self.password = e.target.value
+        }
+
+        self.on('mount', function() {
+        // Trigger init event when component is mounted to page.
+        // Any store could respond to this.
+        RiotControl.trigger('user_init')
+        })
+
+        // Register a listener for store change events.
+        RiotControl.on('users_changed', function(users) {
+        self.users = users
+        self.update()
+        })
     </script>
 
-    <style>
-        input, button {
+    <style scoped>
+       :scope input, button {
             margin-bottom: 10px;
         }
 

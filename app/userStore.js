@@ -7,8 +7,8 @@ function UserStore() {
     var self = this
 
     self.users = [
-        { email: 'bob@bob.com', password: 'test1' },
-        { email: 'dave@dave.com', password: 'test2' }
+        { userName: 'bob', password: 'test1' },
+        { userName: 'dave', password: 'test2' }
     ]
 
     // Our store's event handlers / API.
@@ -16,21 +16,21 @@ function UserStore() {
     // Any number of views can emit actions/events without knowing the specifics of the back-end.
     // This store can easily be swapped for another, while the view components remain untouched.
 
-    self.on('user_add', function(newTodo) {
-        //self.todos.push(newTodo)
-        //self.trigger('todos_changed', self.todos)
-        console.log('user_add triggered');
+    self.on('user_add', function(newuser) {
+        self.users.push(newuser)
+        self.trigger('users_changed', self.users)
+        console.log('user_add triggered')
     })
 
     self.on('user_remove', function() {
-        //self.todos.pop()
-        //self.trigger('todos_changed', self.todos)
-        console.log('user_remove triggered');
+        self.users.pop()
+        self.trigger('users_changed', self.users)
+        console.log('user_remove triggered')
     })
 
     self.on('user_init', function() {
-        //self.trigger('todos_changed', self.todos)
-        console.log('user_init triggered');
+        self.trigger('users_changed', self.users)
+        console.log('user_init triggered')
     })
 
     // The store emits change events to any listening views, so that they may react and redraw themselves.
