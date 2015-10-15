@@ -6,10 +6,7 @@ function UserStore() {
 
     var self = this
 
-    self.users = [
-        { userName: 'bob', password: 'test1' },
-        { userName: 'dave', password: 'test2' }
-    ]
+    self.users = []
 
     // Our store's event handlers / API.
     // This is where we would use AJAX calls to interface with the server.
