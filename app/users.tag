@@ -20,15 +20,15 @@
     self.users = []
 
     self.on('mount', function() {
-    // Trigger init event when component is mounted to page.
-    // Any store could respond to this.
-    RiotControl.trigger('user_init')
+        // Trigger init event when component is mounted to page.
+        // Any store could respond to this.
+        RiotControl.trigger('user_init')
     })
 
     // Register a listener for store change events.
     RiotControl.on('users_changed', function(users) {
-    self.users = users
-    self.update()
+        self.users = users
+        self.update()
     })
     </script>
 

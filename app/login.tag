@@ -17,24 +17,19 @@
 
 
     <script>
-        var self = this
+       var self = this
         self.users = []
 
-        add(e) {
+       self.add = (e) => {
             RiotControl.trigger('user_add', {
                 username: self.userName,
                 password: self.password
             })
-    e.target.reset()
+            e.target.reset()
         }
 
-        editUserName(e) {
-            self.userName = e.target.value
-        }
-
-        editPassword(e) {
-            self.password = e.target.value
-        }
+        self.editUserName = (e) => self.userName = e.target.value
+        self.editPassword = (e) => self.password = e.target.value
 
         self.on('mount', function() {
             // Trigger init event when component is mounted to page.
