@@ -5,12 +5,12 @@ riot.tag('users', '<div class="container"> <div each="{ users }" class="panel pa
     self.on('mount', function() {
 
 
-    RiotControl.trigger('user_init')
+        RiotControl.trigger('user_init')
     })
 
     RiotControl.on('users_changed', function(users) {
-    self.users = users
-    self.update()
+        self.users = users
+        self.update()
     })
     
 });

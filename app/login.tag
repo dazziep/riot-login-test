@@ -1,5 +1,5 @@
 <login>
-    <div class="container">
+    <div class="container" if={ router.current.name == 'home' }>
         <div class="panel panel-primary center-block">
             <div class="panel-heading">
                 Please sign in
@@ -17,6 +17,8 @@
 
 
     <script>
+        this.mixin('rg.router')
+
        var self = this
         self.users = []
 
@@ -39,7 +41,7 @@
 
         // Register a listener for store change events.
         RiotControl.on('users_changed', function(users) {
-            self.update()
+            self.router.go('about')
         })
     </script>
 

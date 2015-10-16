@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Riot Learning Journey</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
@@ -8,11 +11,12 @@
     <app></app>
 
     <!-- include riot.js -->
-    <script src="../node_modules/riot/riot.min.js"></script>
-    <script src="../dist/app-main.min.js"></script>
+    <script src="../node_modules/riot/riot.js"></script>
+    <script src="../dist/app-main.js"></script>
 <!--    <script src="../dist/login.js"></script>
     <script src="../dist/users.js"></script>-->
     <script src="../node_modules/riotcontrol/riotcontrol.js"></script>
+    <script src="../node_modules/riotgear-router/dist/rg-router.js"></script>
     <script src="../app/userstore.js"></script>
 
 
@@ -20,6 +24,8 @@
       var userStore = new UserStore() // Create a store instance.
       RiotControl.addStore(userStore) // Register the store in central dispatch.
       riot.mount('app')
+      rg.router.start()
+
     </script>
   </body>
 </html>
