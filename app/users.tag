@@ -7,8 +7,7 @@
                         <span class="glyphicon glyphicon-user" style="font-size: xx-large;"></span>
                     </div>
                     <div class="media-body">
-                        <div><b>username: { username }</b></div>
-                        <div><b>password: { password }</b></div>
+                        <div><b>user: { username }</b></div>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@
   },
   "scripts": {
     "watch:riot": "riot -w app/ dist/ && npm run babel",
-    "serve": "browser-sync start --server --files 'dist/*.js, app/*.html' --startPath app",
+    "serve": "browser-sync start --server --files 'dist/*.js, app/*.html' --startPath app --port 9001 --https true",
     "lint": "jshint . --exclude-path=.gitignore",
     "riot": "riot app dist/app-main.js --type es6",
     "babel": "babel app/*.js ",

@@ -5,11 +5,11 @@
                 Please sign in
             </div>
             <div class="panel-body">
-                <form class="form-signin" onsubmit={ add }>
+
                     <input type="text" name="userName" onkeyup={ editUserName } class="form-control" placeholder="User name" required="" autofocus="">
                     <input type="password" name="password" onkeyup={ editPassword } class="form-control" placeholder="Password" required="">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                </form>
+                    <button class="btn btn-lg btn-primary btn-block" onclick={ login }>Sign in</button>
+
             </div>
         </div>
     </div>
@@ -24,6 +24,14 @@
 
        self.add = (e) => {
             RiotControl.trigger('user_add', {
+                username: self.userName,
+                password: self.password
+            })
+            e.target.reset()
+        }
+
+        self.login = (e) => {
+            RiotControl.trigger('user_login', {
                 username: self.userName,
                 password: self.password
             })

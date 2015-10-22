@@ -1,6 +1,8 @@
 <about-page>
     <div if={ router.current.name == 'about' }>
-        <h1>Welcome</h1>
+
+        <departments></departments>
+
         <button onclick={ back }>Go Home</button>
     </div>
 
